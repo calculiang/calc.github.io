@@ -1109,7 +1109,20 @@ const nav = document.getElementById('main-nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 });
+// ── HAMBURGER TOGGLE ──
+function toggleNav() {
+  const navLinks = document.querySelector('.nav-links');
+  nav.classList.toggle('nav-open');
+  navLinks.classList.toggle('nav-open');
+}
 
+// Close menu when a link is clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('nav-open');
+    document.querySelector('.nav-links').classList.remove('nav-open');
+  });
+});
 // ── COUNTER ANIMATION ──
 function animateCounter(el) {
   const target = parseInt(el.getAttribute('data-target'));
